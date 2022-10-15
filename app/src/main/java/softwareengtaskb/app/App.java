@@ -1,5 +1,6 @@
 package softwareengtaskb.app;
 import org.example.Lecturer;
+import org.example.Modules;
 import org.example.Programme;
 import org.example.Student;
 import org.joda.time.DateTime;
@@ -108,11 +109,11 @@ public class App {
 
         for(Student s: allStudents){
 
-            System.out.println("\nStudent Name: " +s.getsName());
-            System.out.println("Username: "+s.getsUsername());
+            System.out.println("\nStudent Name: " +s.getName());
+            System.out.println("Username: "+s.getUsername());
             System.out.println("Modules: ");
 
-            for(Module mod: s.getModuleList()){
+            for(Modules mod: s.getModuleList()){
                 System.out.println("  - "+mod.getModName());
             }
             System.out.println("Courses: "+ s.getCourses().getCourseName());
