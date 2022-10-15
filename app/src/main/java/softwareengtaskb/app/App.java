@@ -1,30 +1,34 @@
 package softwareengtaskb.app;
+import org.example.Lecturer;
+import org.example.Programme;
+import org.example.Student;
 import org.joda.time.DateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class App {
 
     public static void main(String[] args) {
 
-        Student sean = new Student("Sean", 22, 1, DateTime.parse("2000-06-01T00:00:00.000Z"));
-        Student sophia = new Student("Sophia", 21, 2, DateTime.parse("2001-03-02T00:00:00.000Z"));
-        Student cormac = new Student("Cormac", 22, 3, DateTime.parse("2001-03-02T00:00:00.000Z"));
-        Student beans = new Student("Beans", 24, 4, DateTime.parse("2001-03-02T00:00:00.000Z"));
-        Student andrew = new Student("Andrew", 18, 5, DateTime.parse("2001-03-02T00:00:00.000Z"));
+        Student sean = new Student("Sean", 22, DateTime.parse("2000-06-01T00:00:00.000Z"), 1);
+        Student sophia = new Student("Sophia", 21, DateTime.parse("2001-03-02T00:00:00.000Z"), 2);
+        Student cormac = new Student("Cormac", 22, DateTime.parse("2001-03-02T00:00:00.000Z"),3);
+        Student beans = new Student("Beans", 24, DateTime.parse("2001-03-02T00:00:00.000Z"),4);
+        Student andrew = new Student("Andrew", 18, DateTime.parse("2001-03-02T00:00:00.000Z"), 5);
 
         Programme ece = new Programme("Electronic and Computer Engineering", DateTime.parse("2000-06-01T00:00:00.000Z"), DateTime.parse("2000-06-01T00:00:00.000Z"));
         Programme law = new Programme("Law", DateTime.parse("2000-06-01T00:00:00.000Z"), DateTime.parse("2000-06-01T00:00:00.000Z"));
         Programme bio = new Programme("Biomedical Engineering", DateTime.parse("2000-06-01T00:00:00.000Z"), DateTime.parse("2000-06-01T00:00:00.000Z"));
 
-        Lecturer l1 = new Lecturer("John", 55, 1,DateTime.parse("2001-01-01T00:00:00.000Z"));
-        Lecturer l2 = new Lecturer("Alan", 57, 2,DateTime.parse("2001-01-01T00:00:00.000Z"));
-        Lecturer l3 = new Lecturer("Maeve", 45, 3,DateTime.parse("2001-01-01T00:00:00.000Z"));
+        Lecturer l1 = new Lecturer("John", 55, DateTime.parse("2001-01-01T00:00:00.000Z"),1);
+        Lecturer l2 = new Lecturer("Alan", 57, DateTime.parse("2001-01-01T00:00:00.000Z"),2);
+        Lecturer l3 = new Lecturer("Maeve", 45, DateTime.parse("2001-01-01T00:00:00.000Z"),3);
 
-        Module m1= new Module("Software Engineering", "CT417");
-        Module m2= new Module("Embedded Systems", "EE347");
-        Module m3= new Module("Equity Law", "EL101");
-        Module m4= new Module("Commercial Law" , "CL421");
-        Module m5= new Module("Materials", "BM288");
+        Modules m1= new Modules("Software Engineering", "CT417");
+        Modules m2= new Modules("Embedded Systems", "EE347");
+        Modules m3= new Modules("Equity Law", "EL101");
+        Modules m4= new Modules("Commercial Law" , "CL421");
+        Modules m5= new Modules("Materials", "BM288");
 
         ArrayList<Student> allStudents = new ArrayList<>();
         allStudents.add(sean);
@@ -38,15 +42,15 @@ public class App {
         courses.add(law);
         courses.add(bio);
 
-        ArrayList<Module> computerModules= new ArrayList<Module>();
+        ArrayList<Modules> computerModules= new ArrayList<Modules>();
         computerModules.add(m1);
         computerModules.add(m2);
 
-        ArrayList<Module> lawModules = new ArrayList<Module>();
+        ArrayList<Modules> lawModules = new ArrayList<Modules>();
         lawModules.add(m3);
         lawModules.add(m4);
 
-        ArrayList<Module> medModules = new ArrayList<Module>();
+        ArrayList<Modules> medModules = new ArrayList<Modules>();
         medModules.add(m5);
 
         sean.setModuleList(computerModules);
@@ -93,7 +97,7 @@ public class App {
             System.out.println("\nCourse Name: " + p.getCourseName());
             System.out.println("-------------------------------------------------");
             System.out.println("Modules: ");
-            for (Module m : p.getModuleList()) {
+            for (Modules m : p.getModuleList()) {
                 System.out.println( "  - "+m.getModName());
             }
 
